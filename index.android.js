@@ -11,14 +11,24 @@ import {
   Text,
   View
 } from 'react-native';
+import styled from 'styled-components/native';
 
+const StyledText = styled.Text`
+  color: tomato
+`
+const StyledView = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5FCFF;
+`
 export default class ReactModoro extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        <StyledText style={styles.welcome}>
           Welcome to React Native!
-        </Text>
+        </StyledText>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
