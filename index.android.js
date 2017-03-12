@@ -4,60 +4,8 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import styled from 'styled-components/native';
 
-const StyledText = styled.Text`
-  color: tomato
-`
-const StyledView = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #F5FCFF;
-`
-export default class ReactModoro extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <StyledText style={styles.welcome}>
-          Welcome to React Native!
-        </StyledText>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
+import { AppRegistry } from 'react-native';
+import ReactModoro from './app'
 AppRegistry.registerComponent('ReactModoro', () => ReactModoro);
+
