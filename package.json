@@ -9,14 +9,24 @@
   "dependencies": {
     "react": "15.4.2",
     "react-native": "0.42.0",
+    "react-native-animatable": "^1.1.0",
     "react-native-fbsdk": "^0.5.0",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^1.4.4"
   },
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "babel-root-import": "^4.1.8",
+    "eslint": "^3.17.1",
+    "eslint-config-standard": "^7.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.0",
+    "eslint-plugin-standard": "^2.1.1",
     "jest": "19.0.2",
     "react-test-renderer": "15.4.2"
   },
