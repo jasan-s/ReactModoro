@@ -9,7 +9,7 @@ export default function DrawerHeader (props) {
   return (
     <View>
       <Text>
-        DrawerHeader
+        Avatar of User
       </Text>
     </View>
   )
