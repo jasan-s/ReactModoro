@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
-Home.propTypes = {
+DrawerHeader.propTypes = {
+
 }
 
-export default function Home (props) {
+export default function DrawerHeader (props) {
   return (
     <View>
       <Text>
-        Home!!!
+        DrawerHeader
       </Text>
     </View>
   )
