@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { View, Text, Image, Animated, StyleSheet } from 'react-native'
-import styled from 'styled-components/native';
-import * as Animatable from 'react-native-animatable';
+import styled from 'styled-components/native'
+import * as Animatable from 'react-native-animatable'
 import { colors } from '~/styles'
 
 export default class PreSplash extends Component {
@@ -14,8 +14,8 @@ export default class PreSplash extends Component {
     this.spin()
   }
 
-  componentWillUnmount() {
-    windows.clearInterval(this.interval)
+  componentWillUnmount () {
+    window.clearInterval(this.interval)
   }
 
   spin () {

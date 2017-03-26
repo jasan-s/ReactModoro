@@ -1,19 +1,34 @@
 import React, { PropTypes, Component } from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as ActionCreators from '~/redux/modules/authentication'
 import { ReactModoroNavigator } from '~/containers'
 import { PreSplash } from '~/components'
+import { firebaseAuth } from '~/config/constants'
 
 class AppContainer extends Component {
   static propTypes = {
-    isAuthenticating: PropTypes.bool.isRequired
+    isAuthenticating: PropTypes.bool.isRequired,
+    isAuthed: PropTypes.bool.isRequired,
+    onAuthChange: PropTypes.func.isRequired
   }
+
+  componentDidMount () {
+    firebaseAuth.onAuthStateChanged((user) => {
+      // console.warn('firebase user: ', user)
+      this.props.onAuthChange(user)
+    })
+  }
+
   render () {
     return (
       <View style={{flex: 1}}>
         {this.props.isAuthenticating === true
             ? <PreSplash />
-            : <ReactModoroNavigator />}
+            : <ReactModoroNavigator
+                isAuthed = {this.props.isAuthed}/>
+        }
       </View>
     )
   }
@@ -21,10 +36,13 @@ class AppContainer extends Component {
 
 function mapStateToProps ({authentication}) {
   return {
-    isAuthenticating: authentication.isAuthenticating
+    isAuthenticating: authentication.isAuthenticating,
+    isAuthed: authentication.isAuthed
   }
 }
 
-export default connect(
-  mapStateToProps
-)(AppContainer)
+function mapDispatchToProps (dispatch, props) {
+  return bindActionCreators(ActionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
