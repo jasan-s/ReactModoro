@@ -1,4 +1,4 @@
-import { getAccessToken, authWithToken } from '~/api/auth'
+import { getAccessToken, authWithToken, updateUser } from '~/api/auth'
 
 const AUTHENTICATING = 'AUTHENTICATING'
 const NOT_AUTHED = 'NOT_AUTHED'
@@ -40,8 +40,13 @@ export function onAuthChange (user) {
     if (!user) {
       dispatch(notAuthed())
     } else {
-      const { providerData, uid } = user
-      dispatch(isAuthed(uid))
+      // update user in firebase database
+      const { uid, displayName, photoURL } = user
+      updateUser({
+        uid,
+        displayName,
+        photoURL
+      }).then(() => dispatch(isAuthed(uid)))
     }
   }
 }
