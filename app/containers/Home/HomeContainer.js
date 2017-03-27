@@ -8,9 +8,19 @@ export default class HomeContainer extends Component {
     navigator: PropTypes.object.isRequired
   }
   state = {}
+
+// function set as a variable so can be passed as a variable
+  handleToSettings = () => {
+    this.props.navigator.push({
+      settings: true
+    })
+  }
+
   render () {
     return (
-      <Home openDrawer ={this.props.openDrawer} />
+      <Home
+      openDrawer ={this.props.openDrawer}
+      handleToSettings = {this.handleToSettings} />
     )
   }
 }
